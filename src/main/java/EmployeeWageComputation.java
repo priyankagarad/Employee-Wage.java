@@ -3,48 +3,44 @@ public class EmployeeWageComputation
 {
     //constant
     public static final int WAGE_PER_HOUR = 20;
-    public static final int FULL_DAY_HOUR = 8;
-    public static final int PART_TIME_HOUR = 4;
-    public static final int EMPLOYEE_HOUR = 0;
+    public static final int FULL_TIME = 1;
+    public static final int PART_TIME = 2;
+    public static final int ABSENT = 0;
 
-    //method calculate daily_employee wage
-    public int calculateDailyWage(int a, int b) {
-        int result = a * b;
-        return result;
-    }
-    //method,calculated part_time employee wage
-    public int calculatePartTimeEmployeeWage(int c, int d)
+    //method created for calculated employee wage
+    public void calculatedEmployeeWage()
     {
-        int result = c * d;
-        return result;
-    }
-    //main method
-    public static void main(String[] args)
-    {
-        //create object of class
-        EmployeeWageComputation emp = new EmployeeWageComputation();
+        //variable
+        int employeeHour=0;
 
         // create random object
         Random random = new Random();
 
         //return value between 0-3
-        int number = random.nextInt(3);
-
-        //check employee attendance
-        if (number==0)
+        int choice = random.nextInt(3);
+        switch (choice)
         {
-            // method call using object of class
-            int daily_wage = emp.calculateDailyWage(WAGE_PER_HOUR, FULL_DAY_HOUR);
-            System.out.println("daily employee wage:" + daily_wage);
+            case FULL_TIME:
+                employeeHour = 8;
+                break;
+            case PART_TIME:
+                employeeHour = 4;
+                break;
+            case ABSENT:
+                employeeHour = 0;
+                break;
+            default:
+                System.out.println("invalid choice");
         }
-        else if (number==1)
-        {
-            int part_time_wage = emp.calculatePartTimeEmployeeWage(WAGE_PER_HOUR, PART_TIME_HOUR);
-            System.out.println("part employee wage:" + part_time_wage);
-        }
-        else
-        {
-            System.out.println(EMPLOYEE_HOUR);
-        }
+        int daily_employee_wage=(WAGE_PER_HOUR*employeeHour);
+        System.out.println(daily_employee_wage);
     }
+    //main method
+     public static void main(String args[])
+     {
+         //create object of class
+         EmployeeWageComputation emp = new EmployeeWageComputation();
+         //method call
+         emp.calculatedEmployeeWage();
+     }
 }

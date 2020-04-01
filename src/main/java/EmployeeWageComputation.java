@@ -8,6 +8,26 @@ public class EmployeeWageComputation
     public static final int IS_ABSENT = 0;
     public static final int MAX_WORKING_HOURS = 100;
     public static final int MAX_DAYS = 20;
+    // method created
+    public int getWorkHours(int choice)
+    {
+        int employeeHour=0;
+        switch (choice)
+        {
+            case IS_FULL_TIME:
+                employeeHour = 8;
+                break;
+            case IS_PART_TIME:
+                employeeHour = 4;
+                break;
+            case IS_ABSENT:
+                employeeHour = 0;
+                break;
+            default:
+                System.out.println("invalid choice");
+        }
+        return employeeHour;
+    }
 
     //method created for calculated employee_hours
     public void calculatedEmployeeHours()
@@ -19,28 +39,16 @@ public class EmployeeWageComputation
         int totalSalary=0;
         while (totalWorkingDays<MAX_DAYS && totalEmployeeHour<MAX_WORKING_HOURS)
         {
-            totalWorkingDays++;
             // create random object
             Random random = new Random();
-            //return value between 0-3
+            //generate value between 0-3
             int choice = random.nextInt(3);
-            switch (choice)
-            {
-                case IS_FULL_TIME:
-                    employeeHour = 8;
-                    break;
-                case IS_PART_TIME:
-                    employeeHour = 4;
-                    break;
-                case IS_ABSENT:
-                    employeeHour = 0;
-                    break;
-                default:
-                    System.out.println("invalid choice");
-            }
+            //call method
+            employeeHour=getWorkHours(choice);
             //calculated total employee hours
             totalEmployeeHour = (totalEmployeeHour + employeeHour);
             //calculated total salary
+            totalWorkingDays++;
         }
         totalSalary = (totalEmployeeHour *WAGE_PER_HOUR);
         System.out.println("total salary" + totalSalary);

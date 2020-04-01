@@ -54,7 +54,7 @@ public class EmployeeWageComputation
             int array[]=new int[50];
             totalWorkingDays++;
             array[totalWorkingDays]=dailyWage(employeeHour);
-            System.out.println(array[totalWorkingDays]);
+            System.out.println(totalWorkingDays+"="+array[totalWorkingDays]);
 
             //calculated total monthly wage
             totalMonthlyWage=(totalMonthlyWage+array[totalWorkingDays]);
@@ -63,6 +63,7 @@ public class EmployeeWageComputation
         totalSalary = (totalEmployeeHour *WAGE_PER_HOUR);
         System.out.println("total salary" + totalSalary);
     }
+
     //create method for daily employee wage calculation
     public int dailyWage(int employeeHour)
     {

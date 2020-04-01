@@ -6,3 +6,5 @@
 /gradlew.bat
 /gradlew
 /settings.gradle
+.gitignore
+/.git/
